@@ -61,6 +61,7 @@ def predict():
 
 @app.route('/symptoms', methods=['GET'])
 def get_symptoms():
+
     # Load the dataset
     data = pd.read_csv('/Users/andreea/Desktop/Licenta/dataset.csv')
     data = data.drop(columns=["Disease"])
