@@ -1,5 +1,7 @@
 import json
 
+import pandas as pd
+
 
 def get_symptoms():
     # Load the dataset
