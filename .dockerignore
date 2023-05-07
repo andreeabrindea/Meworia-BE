@@ -1,0 +1,6 @@
+# flyctl launch added from .gitignore
+**\.venv
+**\.templates
+**\.static
+**\.idea
+fly.toml

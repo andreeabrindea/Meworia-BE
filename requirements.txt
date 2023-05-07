@@ -3,3 +3,4 @@ sklearn~=0.0.post4
 pandas~=2.0.1
 Flask~=2.3.2
 scikit-learn~=1.2.2
+Flask-Cors~=3.0.10
