@@ -3,6 +3,7 @@ import json
 import joblib
 from flask import Flask, request, jsonify
 from flask_cors import CORS
+import disease_info
 
 app = Flask(__name__)
 CORS(app)
@@ -20,8 +21,9 @@ def predict():
 
     symptoms_encoded = encoder.transform([symptoms])
     disease = clf.predict(symptoms_encoded)[0]
-    return jsonify({'disease': disease})
-
+    description = disease_info.get_disease_description(disease)
+    precautions = disease_info.get_disease_precaution(disease)
+    return jsonify({'disease': disease, 'description': description, 'precautions': precautions})
 
 
 @app.route('/symptoms', methods=['GET'])
