@@ -12,8 +12,8 @@ CORS(app)
 # Define the endpoint for prediction
 @app.route('/predict', methods=['POST'])
 def predict():
-    clf = joblib.load('/Users/andreea/PycharmProjects/Meowria/model.joblib')
-    encoder = joblib.load('/Users/andreea/PycharmProjects/Meowria/encoder.joblib')
+    clf = joblib.load('model.joblib')
+    encoder = joblib.load('encoder.joblib')
     symptoms = request.get_json()['symptoms']
 
     while len(symptoms) < 17:
