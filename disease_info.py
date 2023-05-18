@@ -2,7 +2,7 @@ import csv
 
 
 def get_disease_description(disease_name):
-    with open('/Users/andreea/PycharmProjects/Meowria/archive/symptom_Description.csv', 'r') as file:
+    with open('symptom_Description.csv', 'r') as file:
         reader = csv.DictReader(file)
         for row in reader:
             if row['Disease'] == disease_name:
@@ -11,7 +11,7 @@ def get_disease_description(disease_name):
 
 
 def get_disease_precaution(disease_name):
-    with open('/Users/andreea/PycharmProjects/Meowria/archive/symptom_precaution.csv', 'r') as file:
+    with open('symptom_precaution.csv', 'r') as file:
         reader = csv.DictReader(file)
         precautions = []
         for row in reader:
