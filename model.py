@@ -2,8 +2,8 @@ import joblib
 import pandas as pd
 from sklearn.metrics import precision_score, recall_score, f1_score
 from sklearn.model_selection import train_test_split
-from sklearn.ensemble import RandomForestClassifier
 from sklearn.preprocessing import OrdinalEncoder
+from sklearn.tree import DecisionTreeClassifier
 
 data = pd.read_csv('/Users/andreea/PycharmProjects/Meowria/archive/dataset.csv')
 
@@ -19,14 +19,14 @@ y = data["Disease"]
 
 # Encode categorical variables using ordinal encoding
 encoder = OrdinalEncoder(handle_unknown='use_encoded_value', unknown_value=-1)
-X_encoded = encoder.fit_transform(X)
+X_encoded = encoder.fit_transform(X.values)
+
 
 # Split the dataset into training and testing sets
 X_train, X_test, y_train, y_test = train_test_split(X_encoded, y, test_size=0.2, random_state=42)
 
-# Train a random forest classifier, as it gave me the best accuracy score (0.94)
-clf = RandomForestClassifier(n_estimators=100, max_depth=5, random_state=42)
-clf.fit(X_train, y_train)
+clf = DecisionTreeClassifier(max_depth=5, random_state=42)
+clf.fit(X_train.values, y_train)
 
 # Evaluate the model on the testing set
 y_pred = clf.predict(X_test)
