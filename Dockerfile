@@ -9,6 +9,9 @@ COPY . /app
 
 COPY archive/dataset.csv /app/archive/
 
+COPY symptom_Description.csv .
+COPY symptom_precaution.csv .
+
 # Install any needed packages specified in requirements.txt
 RUN pip install --trusted-host pypi.python.org -r requirements.txt
 
